@@ -1,6 +1,6 @@
-<p align="center"> 
+
 <img src="src/test/resources/qa-testing.jpeg" width = "400">
-</p>
+
 
 # 🖥️ Java Test Automation Framework – AutomationExercise.com
 
