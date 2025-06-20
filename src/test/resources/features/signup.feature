@@ -1,8 +1,10 @@
+@signup
 Feature: As a new user I want to sign up for an account, so that I can access my account
 
   Background:
     Given user is on the home page
-    And user click Signup/Login page
+    And user click SignupLogin page
+
 
   Scenario: verify New User Signup! visible on the Signup/Login page
     Then user should see New User Signup! title
