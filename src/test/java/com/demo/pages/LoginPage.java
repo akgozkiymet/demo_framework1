@@ -1,4 +1,7 @@
 package com.demo.pages;
+import com.demo.utilities.BrowserUtils;
+import com.demo.utilities.ConfigurationReader;
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
