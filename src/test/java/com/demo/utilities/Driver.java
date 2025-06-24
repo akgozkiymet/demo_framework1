@@ -17,11 +17,11 @@ public class Driver {
         if (driver == null) {
             if (browser.equals("chrome")) {
                 driver = new ChromeDriver();
-                driver.manage().window().fullscreen();
+                driver.manage().window().maximize();
 
             } else if (browser.equals("firefox")) {
                 driver = new FirefoxDriver();
-                driver.manage().window().fullscreen();
+                driver.manage().window().maximize();
             }
         }
         return driver;
@@ -30,6 +30,7 @@ public class Driver {
     public static void closeDriver(){
         if(driver!=null){
             driver.quit();
+            driver = null;
         }
     }
 }
