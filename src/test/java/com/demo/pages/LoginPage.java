@@ -1,8 +1,4 @@
 package com.demo.pages;
-
-import com.demo.utilities.BrowserUtils;
-import com.demo.utilities.ConfigurationReader;
-import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -25,6 +21,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//h2[text()='New User Signup!']")
     private WebElement signupHeader;
+
+    @FindBy(css = "a[href='/login']")
+    public WebElement signupLoginButton;
 
     public void verifySignupHeader(){
         Assert.assertTrue("New user signup header not displayed", signupHeader.isDisplayed());
