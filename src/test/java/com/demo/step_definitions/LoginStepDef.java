@@ -1,33 +1,34 @@
 package com.demo.step_definitions;
 
 import com.demo.pages.LoginPage;
+import com.demo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+
 
 public class LoginStepDef {
-LoginPage loginPage;
 
-    @Given("User is on the home page")
-    public void user_is_on_the_home_page() {
-        loginPage=new LoginPage();
 
-    }
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    @Given("the user clicks Signup \\/ Login from the home page")
+    public void the_user_clicks_signup_login_from_the_home_page() {
+        Driver.getDriver().get("https://www.automationexercise.com/");
 
     }
-    @When("the user enters valid username and password")
-    public void the_user_enters_valid_username_and_password() {
+    @When("the user enters invalid credentials and clicks Login")
+    public void the_user_enters_invalid_credentials_and_clicks_login() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.emailInput.sendKeys("wrong@example.com");
+        loginPage.passwordInput.sendKeys("invalidPassword");
+        loginPage.loginButton.click();
 
     }
-    @When("clicks the login button")
-    public void clicks_the_login_button() {
+    @Then("{string} error message should be displayed")
+    public void error_message_should_be_displayed(String expectedMessage) {
+        LoginPage loginPage = new LoginPage();
+        String actualMessage = loginPage.errorMessage.getText();
+        Assert.assertEquals(expectedMessage, actualMessage);
 
     }
-    @Then("the user should be redirected to the homepage")
-    public void the_user_should_be_redirected_to_the_homepage() {
-
-    }
-
 }
