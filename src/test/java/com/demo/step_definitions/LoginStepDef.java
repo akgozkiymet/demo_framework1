@@ -1,4 +1,4 @@
-package com.demo.pages;
+package com.demo.step_definitions;
 
 import com.demo.pages.LoginPage;
 import com.demo.utilities.ConfigurationReader;
@@ -66,5 +66,4 @@ public class LoginStepDef {
         loginPage.verifyAccountDeletedMessage(expectedMessage);
     }
 }
-
 

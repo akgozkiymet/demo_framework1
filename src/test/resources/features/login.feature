@@ -17,3 +17,5 @@ Feature: Login Functionality
     Given user is logged in
     When user clicks on Delete Account button
     Then user should see "ACCOUNT DELETED!" message
+
+
