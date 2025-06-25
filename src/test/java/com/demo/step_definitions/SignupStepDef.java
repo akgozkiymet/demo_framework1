@@ -24,10 +24,12 @@ public class SignupStepDef {
         homePage.verifyHomePage();
         LOG.info("Landed on the home page");
     }
+
     @Given("user click SignupLogin page")
     public void user_click_signup_login_page() {
         homePage.clickSignupLoginPage();
     }
+
     @Then("user should see New User Signup! title")
     public void user_should_see_new_user_signup_title() {
         loginPage.verifySignupHeader();
@@ -37,10 +39,12 @@ public class SignupStepDef {
     public void userEntersNameAndEmailUnderNewUserSignup() {
         loginPage.inputNameEmail();
     }
+
     @Given("user clicks Signup button")
     public void user_clicks_signup_button() {
         loginPage.clickSignUpButton();
     }
+
     @Then("user should land on signup form page")
     public void user_should_land_on_signup_form_page() {
         signupPage.verifyAccountInfoHeader();
@@ -50,18 +54,22 @@ public class SignupStepDef {
     public void user_fills_valid_account_info_and_address_and_click_create_account() {
         signupPage.fillInfoAndClickCreateAccount();
     }
+
     @Then("user sees {string} text in header")
     public void user_sees_text_in_header(String header) {
         signupPage.verifyAccountCreatedHeader(header);
     }
+
     @Then("user sees {string} message")
     public void user_sees_message(String message) {
         signupPage.verifyAccountCreationMessage(message);
     }
+
     @Then("user clicks continue button")
     public void user_clicks_continue_button() {
         signupPage.clickContinueButton();
     }
+
     @Then("user should land on home page and see their name beside Logged in as <name>")
     public void user_should_land_on_home_page_and_see_their_name_beside_logged_in_as_name() {
 
