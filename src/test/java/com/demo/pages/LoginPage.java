@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends BasePage {
 
     public LoginPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(Driver.getDriver() , this);
     }
 
     @FindBy(css = "a[href='/login']")
@@ -33,6 +33,8 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "a[href='/delete_account']")
     public WebElement deleteAccountButton;
+    @FindBy(css = "a[href='/logout']")
+    public WebElement logoutButton;
 
     @FindBy(xpath = "//h2[@data-qa='account-deleted']")
     public WebElement accountDeletedHeader;
@@ -78,7 +80,7 @@ public class LoginPage extends BasePage {
     }
 
     public void verifyAccountDeletedMessage(String expectedMsg) {
-        Assert.assertEquals(expectedMsg, accountDeletedHeader.getText());
+        Assert.assertEquals(expectedMsg , accountDeletedHeader.getText());
     }
 
     public void verifySignupHeader() {
@@ -92,6 +94,10 @@ public class LoginPage extends BasePage {
 
     public void clickSignUpButton() {
         signupButton.click();
+    }
+
+    public void clickLogoutButton() {
+        logoutButton.click();
     }
 }
 

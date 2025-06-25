@@ -65,5 +65,15 @@ public class LoginStepDef {
     public void user_should_see_account_deleted_message(String expectedMessage) {
         loginPage.verifyAccountDeletedMessage(expectedMessage);
     }
-}
+        @When("user clicks on Logout button")
+        public void user_clicks_on_logout_button() {
+            loginPage.clickLogoutButton();
+        }
+
+        @Then("user should be redirected to login page")
+        public void user_should_be_redirected_to_login_page() {
+            loginPage.verifyLoginHeader();
+        }
+    }
+
 

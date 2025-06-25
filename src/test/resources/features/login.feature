@@ -18,4 +18,9 @@ Feature: Login Functionality
     When user clicks on Delete Account button
     Then user should see "ACCOUNT DELETED!" message
 
+  Scenario: Logout after successful login
+    Given user is logged in
+    When user clicks on Logout button
+    Then user should be redirected to login page
+
 
