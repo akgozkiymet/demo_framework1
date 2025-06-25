@@ -23,7 +23,7 @@ Feature: As a new user I want to sign up for an account, so that I can access my
       Then user sees "ACCOUNT CREATED!" text in header
       Then user sees "Congratulations! Your new account has been successfully created!" message
       And user clicks continue button
-      Then user should land on home page and see their name beside Logged in as <name>
+      Then user should land on home page and see their name beside Logged in as
 
 
 

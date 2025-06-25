@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LoginPage extends BasePage {
     private static final Logger LOG = LogManager.getLogger();
     Faker faker = new Faker();
@@ -32,7 +35,8 @@ public class LoginPage extends BasePage {
         Assert.assertTrue("New user signup header not displayed", signupHeader.isDisplayed());
     }
 
-    public void inputNameEmail(){
+    public Map<String,String>  inputNameEmail(){
+        Map<String,String> info = new HashMap<>();
         String dateTime = BrowserUtils.getTimeStamp();
         String name = faker.name().firstName();
         String email = ConfigurationReader.getProperty("email_base") + "+" + dateTime + "@gmail.com";
@@ -40,6 +44,11 @@ public class LoginPage extends BasePage {
         LOG.info("signup name: {}", name);
         signupEmail.sendKeys(email);
         LOG.info("email: {}", email);
+
+        info.put("name", name);
+
+        //save name to map and return it,
+        return info;
     }
 
     public void clickSignUpButton(){
