@@ -1,5 +1,6 @@
 package com.demo.step_definitions;
 
+import com.demo.pages.HomePage;
 import com.demo.pages.LoginPage;
 import com.demo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -11,9 +12,10 @@ import org.junit.Assert;
 public class LoginStepDef {
 
     LoginPage loginPage = new LoginPage();
-    @When("user clicks on Signup \\/ Login button")
+    HomePage homePage = new HomePage();
+    @When("user clicks on SignupLogin button")
     public void user_clicks_on_signup_login_button() {
-        loginPage.clickSignupLoginButton();
+        homePage.clickSignupLoginPage();
     }
 
     @Then("login form should be displayed")
