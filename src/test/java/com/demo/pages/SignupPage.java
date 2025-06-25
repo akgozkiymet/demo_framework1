@@ -103,11 +103,7 @@ public class SignupPage extends BasePage{
         continueButton.click();
     }
 
-    public void verifyUsernameOnHomepage(){
-        BrowserUtils.verifyHomePage("Automation Exercise");
 
-
-    }
 
 
 }

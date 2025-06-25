@@ -10,9 +10,13 @@ import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class SignupStepDef {
     private static final Logger LOG = LogManager.getLogger();
+    private static Map<String, String> info = new HashMap<>();
 
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
@@ -35,7 +39,7 @@ public class SignupStepDef {
 
     @And("user enters name and email under New User Signup!")
     public void userEntersNameAndEmailUnderNewUserSignup() {
-        loginPage.inputNameEmail();
+        info = loginPage.inputNameEmail();
     }
     @Given("user clicks Signup button")
     public void user_clicks_signup_button() {
@@ -62,9 +66,9 @@ public class SignupStepDef {
     public void user_clicks_continue_button() {
         signupPage.clickContinueButton();
     }
-    @Then("user should land on home page and see their name beside Logged in as <name>")
-    public void user_should_land_on_home_page_and_see_their_name_beside_logged_in_as_name() {
-
+    @Then("user should land on home page and see their name beside Logged in as")
+    public void user_should_land_on_home_page_and_see_their_name_beside_logged_in_as() {
+        homePage.verifyUsernameOnHomepage(info);
     }
 
 
