@@ -17,7 +17,6 @@ import java.util.Map;
 public class SignupStepDef {
     private static final Logger LOG = LogManager.getLogger();
     private static Map<String, String> info = new HashMap<>();
-
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     SignupPage signupPage = new SignupPage();
