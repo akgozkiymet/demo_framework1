@@ -30,8 +30,75 @@ public class LoginPage extends BasePage {
     @FindBy(css = "a[href='/login']")
     public WebElement signupLoginButton;
 
-    public void verifySignupHeader(){
-        Assert.assertTrue("New user signup header not displayed", signupHeader.isDisplayed());
+    @FindBy(css = "div[class='login-form'] h2")
+    public WebElement loginHeader;
+
+    @FindBy(xpath = "//input[@data-qa='login-email']")
+    public WebElement emailInputBox;
+
+    @FindBy(xpath = "//input[@placeholder='Password']")
+    public WebElement passwordInputBox;
+
+    @FindBy(css = "button[data-qa='login-button']")
+    public WebElement loginButton;
+
+    @FindBy(xpath = "//li[contains(text(),'Logged in as')]")
+    public WebElement loggedInAsText;
+
+    @FindBy(css = "a[href='/delete_account']")
+    public WebElement deleteAccountButton;
+    @FindBy(css = "a[href='/logout']")
+    public WebElement logoutButton;
+
+    @FindBy(xpath = "//h2[@data-qa='account-deleted']")
+    public WebElement accountDeletedHeader;
+
+//    @FindBy(css = "div.signup-form h2")
+//    public WebElement signupHeader;
+
+    @FindBy(css = "input[placeholder='Name']")
+    public WebElement signupNameBox;
+
+    @FindBy(css = "input[data-qa='signup-email']")
+    public WebElement signupEmailBox;
+
+//    @FindBy(css = "button[data-qa='signup-button']")
+//    public WebElement signupButton;
+
+    public void clickSignupLoginButton() {
+        signupLoginButton.click();
+    }
+
+    public void verifyLoginHeader() {
+        Assert.assertTrue(loginHeader.isDisplayed());
+    }
+
+    public void enterEmail(String email) {
+        emailInputBox.sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
+        passwordInputBox.sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+
+    public String getLoggedInText() {
+        return loggedInAsText.getText();
+    }
+
+    public void clickDeleteAccountButton() {
+        deleteAccountButton.click();
+    }
+
+    public void verifyAccountDeletedMessage(String expectedMsg) {
+        Assert.assertEquals(expectedMsg , accountDeletedHeader.getText());
+    }
+
+    public void verifySignupHeader() {
+        Assert.assertTrue(signupHeader.isDisplayed());
     }
 
     public Map<String,String>  inputNameEmail(){
@@ -54,4 +121,7 @@ public class LoginPage extends BasePage {
         signupButton.click();
     }
 
+    public void clickLogoutButton() {
+        logoutButton.click();
+    }
 }
