@@ -11,7 +11,7 @@ import org.junit.Assert;
 public class LoginStepDef {
 
     LoginPage loginPage = new LoginPage();
-    @When("user clicks on Signup \\/ Login button")
+    @When("user clicks on SignupLogin button")
     public void user_clicks_on_signup_login_button() {
         loginPage.clickSignupLoginButton();
     }

@@ -16,6 +16,7 @@ import java.util.Random;
 public class SignupPage extends BasePage{
     Faker faker = new Faker();
     private static final Logger LOG = LogManager.getLogger();
+
     //signup form page
     @FindBy(xpath = "//h2/b[text()='Enter Account Information']")
     private WebElement accountInfoHeader;
@@ -86,7 +87,6 @@ public class SignupPage extends BasePage{
         city.sendKeys(faker.address().city());
         zipcode.sendKeys(faker.address().zipCode());
         mobileNum.sendKeys(faker.phoneNumber().phoneNumber());
-
         createAccountButton.click();
 
     }
