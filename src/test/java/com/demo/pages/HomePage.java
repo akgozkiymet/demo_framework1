@@ -28,7 +28,7 @@ public class HomePage extends BasePage{
     }
 
     public void verifyUsernameOnHomepage(Map<String, String> info){
-        BrowserUtils.verifyHomePage("Automation Exercise");
+        BrowserUtils.verifyTitle("Automation Exercise");
         Assert.assertEquals(info.get("name"), loggedInName.getText());
         LOG.info("Logged in as {}",loggedInName.getText());
         LOG.info("Expected logged in as {}",info.get("name"));

@@ -23,8 +23,6 @@ public class Hooks {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         LOG.info("Navigated to homepage");
-
-
     }
 
     @After
@@ -33,7 +31,9 @@ public class Hooks {
         if(scenario.isFailed()){
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
+            LOG.info("Scenario has failed, screenshot attached");
         }
+
         BrowserUtils.wait(2);
         Driver.closeDriver();
     }

@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+
 public class LoginStepDef {
 
     LoginPage loginPage = new LoginPage();
@@ -17,7 +18,7 @@ public class LoginStepDef {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    @When("user clicks on Signup \\/ Login button")
+    @When("user clicks on SignupLogin button")
     public void user_clicks_on_signup_login_button() {
         loginPage.clickSignupLoginButton();
     }

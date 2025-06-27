@@ -17,7 +17,7 @@ public class BrowserUtils {
 
     /**
      * get date and current time as a string
-     * @return
+     * @return date and time as string
      */
 
     public static String getTimeStamp(){
@@ -28,7 +28,11 @@ public class BrowserUtils {
         return dateTimeString;
     }
 
-    public static void verifyHomePage(String title){
+    /**
+     * verify page title
+     * @param title
+     */
+    public static void verifyTitle(String title){
         Assert.assertEquals(title, Driver.getDriver().getTitle());
     }
 }
