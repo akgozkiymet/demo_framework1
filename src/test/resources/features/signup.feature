@@ -2,7 +2,7 @@
 Feature: As a new user I want to sign up for an account, so that I can access my account
 
   Background:
-    Given user is on the home page
+    Given user is on the homepage
     And user click SignupLogin page
 
 

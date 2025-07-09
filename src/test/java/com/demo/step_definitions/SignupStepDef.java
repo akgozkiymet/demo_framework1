@@ -19,8 +19,8 @@ public class SignupStepDef {
     LoginPage loginPage = new LoginPage();
     SignupPage signupPage = new SignupPage();
 
-    @Given("user is on the home page")
-    public void user_is_on_the_home_page() {
+    @Given("user is on the homepage")
+    public void user_is_on_the_homepage() {
         homePage.verifyHomePage();
         LOG.info("Landed on the home page");
     }
