@@ -62,7 +62,7 @@ public class LoginStepDef {
         loginPage.clickDeleteAccountButton();
     }
 
-    @Then("user should see {string} message")
+    @Then("user should see the {string} message")
     public void user_should_see_account_deleted_message(String expectedMessage) {
         loginPage.verifyAccountDeletedMessage(expectedMessage);
     }

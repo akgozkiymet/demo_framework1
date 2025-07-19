@@ -17,7 +17,7 @@ Feature: Login Functionality
   Scenario: Delete account after successful login
     Given user is logged in
     When user clicks on Delete Account button
-    Then user should see "ACCOUNT DELETED!" message
+    Then user should see the "ACCOUNT DELETED!" message
 
   Scenario: Logout after successful login
     Given user is logged in

@@ -19,6 +19,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a//b")
     private WebElement loggedInName;
 
+    @FindBy (xpath = "//div[@id='slider-carousel']//h2")
+    private WebElement carouselHeader;
+
     public void clickSignupLoginPage(){
         signupLoginLink.click();
     }
@@ -32,7 +35,9 @@ public class HomePage extends BasePage{
         Assert.assertEquals(info.get("name"), loggedInName.getText());
         LOG.info("Logged in as {}",loggedInName.getText());
         LOG.info("Expected logged in as {}",info.get("name"));
+    }
 
-
+    public WebElement getCarouselHeader() {
+        return carouselHeader;
     }
 }
