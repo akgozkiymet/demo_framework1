@@ -2,7 +2,12 @@ package com.demo.utilities;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -11,7 +16,7 @@ import java.util.List;
 public class BrowserUtils {
     public static void wait(int seconds) {
         try {
-            Thread.sleep(seconds * 1000);
+            Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -33,7 +38,7 @@ public class BrowserUtils {
 
     /**
      * verify page title
-     * @param title
+     * @param title of the page
      */
     public static void verifyTitle(String title){
         Assert.assertEquals(title, Driver.getDriver().getTitle());
@@ -51,5 +56,14 @@ public class BrowserUtils {
             elementsText.add(date.getText());
         }
         return elementsText;
+    }
+
+    /**
+     *
+     * @param element to wait for until visible in the page
+     */
+    public static void waitElementVisibility(WebElement element){
+        WebDriverWait explicitWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        explicitWait.until(ExpectedConditions.visibilityOf(element));
     }
 }
