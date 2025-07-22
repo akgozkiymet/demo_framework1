@@ -13,7 +13,17 @@ abstract class BasePage {
     @FindBy(css = "a[href='/products']")
     private WebElement products;
 
+    @FindBy(css = "a[href='/login']")
+    private WebElement signupLogin;
+
+    @FindBy(css = "a[href='/view_cart']")
+    private WebElement cart;
+
     public void navigateToProducts(){
         products.click();
+    }
+
+    public void navigateToCart(){
+        cart.click();
     }
 }
