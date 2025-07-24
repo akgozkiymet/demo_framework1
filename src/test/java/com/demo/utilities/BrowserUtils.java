@@ -1,6 +1,7 @@
 package com.demo.utilities;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +21,6 @@ public class BrowserUtils {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     /**
@@ -65,5 +65,10 @@ public class BrowserUtils {
     public static void waitElementVisibility(WebElement element){
         WebDriverWait explicitWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         explicitWait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void scrollToElement(WebElement element){
+        ((JavascriptExecutor) Driver.getDriver()).executeScript(
+                "arguments[0].scrollIntoView();", element);
     }
 }
