@@ -13,9 +13,16 @@ abstract class BasePage {
     @FindBy(css = "a[href='/products']")
     private WebElement products;
 
+    @FindBy(css = "a[href='/login']")
+    private WebElement signupLogin;
+
+    @FindBy(css = "a[href='/view_cart']")
+    private WebElement cart;
+
     public void navigateToProducts(){
         products.click();
     }
+
     @FindBy(css = "a[href='/']")
     private WebElement homeButton;
 
@@ -27,6 +34,11 @@ abstract class BasePage {
 
     public void clickContactUsButton() {
         contactUsButton.click();
+    }
+
+
+    public void navigateToCart(){
+        cart.click();
     }
 
 }

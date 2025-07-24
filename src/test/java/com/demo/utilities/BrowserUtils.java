@@ -22,7 +22,6 @@ public class BrowserUtils {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     /**
@@ -68,6 +67,7 @@ public class BrowserUtils {
         WebDriverWait explicitWait = new WebDriverWait(Driver.getDriver() , Duration.ofSeconds(3));
         explicitWait.until(ExpectedConditions.visibilityOf(element));
     }
+
 
     public static void waitForVisibility(WebElement element, int seconds) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
