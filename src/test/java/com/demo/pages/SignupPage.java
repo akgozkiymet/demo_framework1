@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -104,6 +105,31 @@ public class SignupPage extends BasePage{
     }
 
 
+    public class ContactUsPage extends BasePage {
+        public ContactUsPage(){
+            PageFactory.initElements(Driver.getDriver() , this);
 
+        }
+        @FindBy(name = "name")
+        public WebElement nameInput;
 
+        @FindBy(name = "email")
+        public WebElement emailInput;
+
+        @FindBy(name = "subject")
+        public WebElement subjectInput;
+
+        @FindBy(name = "message")
+        public WebElement messageInput;
+
+        @FindBy(name = "upload_file")
+        public WebElement chooseFile;
+
+        @FindBy(xpath = "//input[@name='submit']")
+        public WebElement submitButton;
+
+        @FindBy(id = "//i[@class='fa fa-arrow-circle-o-right']")
+        public WebElement subscriptionSubmitButton;
+
+    }
 }

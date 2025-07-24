@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"html:target/cucumber.html"},
 features = "src/test/resources/features",
         glue = "com/demo/step_definitions",
-        tags = "",
+        tags = "@addToCart",
         dryRun = false
 )
 

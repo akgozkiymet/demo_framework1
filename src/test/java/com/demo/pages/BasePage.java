@@ -16,4 +16,17 @@ abstract class BasePage {
     public void navigateToProducts(){
         products.click();
     }
+    @FindBy(css = "a[href='/']")
+    private WebElement homeButton;
+
+    public void clickHomeButton(){
+        homeButton.click();
+    }
+    @FindBy(css = "a[href='/contact_us']")  // locator sayfana göre değişebilir
+    public WebElement contactUsButton;
+
+    public void clickContactUsButton() {
+        contactUsButton.click();
+    }
+
 }
