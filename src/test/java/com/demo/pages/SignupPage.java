@@ -104,32 +104,4 @@ public class SignupPage extends BasePage{
         continueButton.click();
     }
 
-
-    public class ContactUsPage extends BasePage {
-        public ContactUsPage(){
-            PageFactory.initElements(Driver.getDriver() , this);
-
-        }
-        @FindBy(name = "name")
-        public WebElement nameInput;
-
-        @FindBy(name = "email")
-        public WebElement emailInput;
-
-        @FindBy(name = "subject")
-        public WebElement subjectInput;
-
-        @FindBy(name = "message")
-        public WebElement messageInput;
-
-        @FindBy(name = "upload_file")
-        public WebElement chooseFile;
-
-        @FindBy(xpath = "//input[@name='submit']")
-        public WebElement submitButton;
-
-        @FindBy(id = "//i[@class='fa fa-arrow-circle-o-right']")
-        public WebElement subscriptionSubmitButton;
-
-    }
 }
