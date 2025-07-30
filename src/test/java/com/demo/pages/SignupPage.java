@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -102,8 +103,5 @@ public class SignupPage extends BasePage{
     public void clickContinueButton(){
         continueButton.click();
     }
-
-
-
 
 }
