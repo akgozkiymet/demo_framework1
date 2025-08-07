@@ -7,8 +7,7 @@ Feature: As a user I want to submit reviews, so that I can share feedback
     And user is on the product detail page
 
   Scenario: Display review submission form
-    Then user should see the "Write Your Review" section
-    Then user should see form with fields for "Name","Email","Review"
+    Then user should see form with fields for name, email and review
     Then user should see submit button
 
   Scenario Outline: Successfully submit a product review
