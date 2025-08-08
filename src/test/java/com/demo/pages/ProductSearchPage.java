@@ -72,6 +72,7 @@ public class ProductSearchPage extends BasePage {
         Assert.assertTrue(titles.isEmpty()); //no titles have been displayed
     }
 
+    //view products details link clicked
     public void navigateToPDP(){
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);", viewProduct);
