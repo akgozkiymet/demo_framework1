@@ -5,7 +5,6 @@ Feature: As a new user I want to sign up for an account, so that I can access my
     Given user is on the homepage
     And user click SignupLogin page
 
-
   Scenario: verify New User Signup! visible on the Signup/Login page
     Then user should see New User Signup! title
 
@@ -13,8 +12,6 @@ Feature: As a new user I want to sign up for an account, so that I can access my
     And user enters name and email under New User Signup!
     And user clicks Signup button
     Then user should land on signup form page
-
-    #TODO implement negative scenario for signup
 
     Scenario: user signup flow
       And user enters name and email under New User Signup!
@@ -25,6 +22,10 @@ Feature: As a new user I want to sign up for an account, so that I can access my
       And user clicks continue button
       Then user should land on home page and see their name beside Logged in as
 
+      Scenario: verify user cannot signup with existing email
+        And user enters name "test" and email "test@gmail.com" under New User Signup!
+        And user clicks Signup button
+        Then user should see error message "Email Address already exist!"
 
 
 

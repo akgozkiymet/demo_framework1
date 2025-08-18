@@ -1,6 +1,7 @@
 package com.demo.pages;
 
 
+import com.demo.utilities.BrowserUtils;
 import com.demo.utilities.ConfigurationReader;
 import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
@@ -10,11 +11,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
-public class SignupPage extends BasePage{
+public class SignupPage extends BasePage {
     Faker faker = new Faker();
     private static final Logger LOG = LogManager.getLogger();
+
+    @FindBy(css = "input[data-qa='signup-name']")
+    private WebElement signupName;
+    @FindBy(css = "input[data-qa='signup-email']")
+    private WebElement signupEmail;
 
     //signup form page
     @FindBy(xpath = "//h2/b[text()='Enter Account Information']")
@@ -46,6 +54,9 @@ public class SignupPage extends BasePage{
     @FindBy(id = "mobile_number")
     private WebElement mobileNum;
 
+    @FindBy(xpath = "//form[@action='/signup']//p")
+    private WebElement errorMessage;
+
     @FindBy(xpath = "//button[@data-qa='create-account']")
     private WebElement createAccountButton;
 
@@ -58,11 +69,11 @@ public class SignupPage extends BasePage{
     @FindBy(xpath = "//a[@data-qa='continue-button']")
     private WebElement continueButton;
 
-    public void verifyAccountInfoHeader(){
+    public void verifyAccountInfoHeader() {
         Assert.assertTrue(accountInfoHeader.isDisplayed());
     }
 
-    public void fillInfoAndClickCreateAccount(){
+    public void fillInfoAndClickCreateAccount() {
         Random random = new Random();
         Select days = new Select(daysDropdown);
         Select months = new Select(monthsDropdown);
@@ -72,11 +83,11 @@ public class SignupPage extends BasePage{
         gender.click();
         password.sendKeys(ConfigurationReader.getProperty("password"));
 
-        days.selectByValue(String.valueOf(random.nextInt(1,29)));
-        months.selectByValue(String.valueOf(random.nextInt(1,13)));
+        days.selectByValue(String.valueOf(random.nextInt(1, 29)));
+        months.selectByValue(String.valueOf(random.nextInt(1, 13)));
         years.selectByVisibleText("1993");
 
-        LOG.info("Selected day: {} and month: {}",days.getFirstSelectedOption().getText(), months.getFirstSelectedOption().getText());
+        LOG.info("Selected day: {} and month: {}", days.getFirstSelectedOption().getText(), months.getFirstSelectedOption().getText());
 
         firstName.sendKeys(faker.name().firstName());
         lastName.sendKeys(faker.name().lastName());
@@ -90,16 +101,39 @@ public class SignupPage extends BasePage{
 
     }
 
-    public void verifyAccountCreationMessage(String message){
+    public void verifyAccountCreationMessage(String message) {
         Assert.assertEquals(message, accountCreationMessage.getText());
     }
 
-    public void verifyAccountCreatedHeader(String headerText){
+    public void verifyAccountCreatedHeader(String headerText) {
         Assert.assertEquals(headerText, accountCreatedHeader.getText());
     }
 
-    public void clickContinueButton(){
+    public void clickContinueButton() {
         continueButton.click();
     }
 
+    public void inputSignupNameEmail(String name, String email) {
+        signupName.sendKeys(name);
+        signupEmail.sendKeys(email);
+    }
+
+    public void verifyErrorMessage(String expectedErrorMessage) {
+        String actualErrorMessage = errorMessage.getText();
+        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
+    }
+
+    public void createAccount() {
+        LoginPage loginPage = new LoginPage();
+
+        //enter  name email on login/signup page
+        loginPage.inputNameEmail();
+        loginPage.clickSignUpButton();
+
+        //on signup page, fill info
+        fillInfoAndClickCreateAccount();
+
+        //click continue to proceed to homepage
+        clickContinueButton();
+    }
 }
