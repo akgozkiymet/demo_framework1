@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,5 +74,15 @@ public class SignupStepDef {
     @Then("user should land on home page and see their name beside Logged in as")
     public void user_should_land_on_home_page_and_see_their_name_beside_logged_in_as() {
         homePage.verifyUsernameOnHomepage(info);
+    }
+
+    @And("user enters name {string} and email {string} under New User Signup!")
+    public void user_enters_name_and_email_under_new_user_signup(String name, String email) {
+        signupPage.inputSignupNameEmail(name, email);
+    }
+
+    @Then("user should see error message {string}")
+    public void user_should_see_error_message(String message) {
+        signupPage.verifyErrorMessage(message);
     }
 }
