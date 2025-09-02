@@ -11,7 +11,8 @@ public class CartPage {
         PageFactory.initElements(Driver.getDriver() , this);
     }
 
-    @FindBy(xpath = "(//*[text()='Add to cart'])[1]")
+    //@FindBy(xpath = "(//*[text()='Add to cart'])[1]")
+    @FindBy(xpath = "(//*[normalize-space()='Add to cart'])[1]")
     public WebElement firstProductAddToCartButton;
 
     @FindBy(xpath = "//button[text()='Continue Shopping']")

@@ -43,7 +43,7 @@ public class ContactStepDef {
 
     @When("the user uploads a file")
     public void the_user_uploads_a_file() {
-        contactPage.uploadFile("/Users/kiymet/IdeaProjects/demo_framework");
+        contactPage.uploadFile(ConfigurationReader.getProperty("filepath"));
     }
 
     @When("clicks Submit")

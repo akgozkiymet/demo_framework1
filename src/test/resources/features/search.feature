@@ -1,4 +1,4 @@
-@search
+@search @smoke
 Feature: As a user I should be able to search products and see relevant results
 
   Background:

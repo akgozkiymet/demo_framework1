@@ -39,3 +39,4 @@ build/
 /configuration.properties
 .idea/
 /logs/
+/src/test/resources/file.txt
