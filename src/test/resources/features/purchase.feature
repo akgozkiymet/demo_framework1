@@ -1,4 +1,4 @@
-@purchase @e2e
+@purchase @smoke
 
 Feature: Checkout and Complete Purchase
   As a shopper I want to checkout and complete my purchase, whether I'm registered or not so that I can finalize my order

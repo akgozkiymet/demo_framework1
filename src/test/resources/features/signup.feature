@@ -1,4 +1,4 @@
-@signup
+@signup @smoke
 Feature: As a new user I want to sign up for an account, so that I can access my account
 
   Background:
