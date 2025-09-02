@@ -1,12 +1,15 @@
 package com.demo.pages;
 import com.demo.utilities.BrowserUtils;
 import com.demo.utilities.ConfigurationReader;
+import com.demo.utilities.FileUtils;
 import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,6 +109,14 @@ public class LoginPage extends BasePage {
         String dateTime = BrowserUtils.getTimeStamp();
         String name = faker.name().firstName();
         String email = ConfigurationReader.getProperty("email_base") + "+" + dateTime + "@gmail.com";
+
+        try {
+            FileUtils.writeIntoFile(email);
+        } catch (IOException e) {
+            System.out.println("File NOt Found");
+            throw new RuntimeException(e);
+        }
+
         signupName.sendKeys(name);
         LOG.info("signup name: {}", name);
         signupEmail.sendKeys(email);
