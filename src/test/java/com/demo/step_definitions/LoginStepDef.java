@@ -3,6 +3,7 @@ package com.demo.step_definitions;
 import com.demo.pages.LoginPage;
 import com.demo.utilities.ConfigurationReader;
 import com.demo.utilities.Driver;
+import com.demo.utilities.FileUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,7 +36,8 @@ public class LoginStepDef {
 
     @When("user enters valid email and password")
     public void user_enters_valid_email_and_password() {
-        loginPage.enterEmail(ConfigurationReader.getProperty("username"));
+        //loginPage.enterEmail(ConfigurationReader.getProperty("username"));
+        loginPage.enterEmail(FileUtils.readFile());
         loginPage.enterPassword(ConfigurationReader.getProperty("password"));
     }
 
