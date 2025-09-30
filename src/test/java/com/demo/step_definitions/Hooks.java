@@ -6,6 +6,7 @@ import com.demo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.RestAssured;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -37,6 +38,12 @@ public class Hooks {
         BrowserUtils.wait(2);
         Driver.closeDriver();
     }
+
+    @Before ("@api")
+    public void setupAPI(){
+        RestAssured.baseURI =ConfigurationReader.getProperty("baseURL");
+    }
+
 
 
 }
